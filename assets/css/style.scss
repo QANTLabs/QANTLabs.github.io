@@ -90,6 +90,12 @@ a.navbar-item:hover,
     // padding-right: 3em;
 }
 
+@media (max-width: 768px) {  /* Targets mobile screens */
+    .hero .button, h3{
+      margin-left: 15px;  /* Adds left space */
+    }
+  }
+
 /* Keyframes for smooth gradient animation */
 @keyframes gradientAnimation {
     0% {
