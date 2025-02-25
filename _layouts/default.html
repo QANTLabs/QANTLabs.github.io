@@ -11,7 +11,7 @@ layout: compress
   {% include showcase.html %}
   {% include about.html %}
   {% include research.html %}
-  {% include publications.html %}
+  <!-- {% include publications.html %} -->
   {% include careers.html %}
   {% include contact.html %}
   <!--Footer begins here-->
@@ -32,12 +32,13 @@ layout: compress
 
     for (var i = 0; i < heroes.length; i++) {
         var sectionTop = heroes[i].offsetTop-viewOffset;
-        var sectionBottom = heroes[i].offsetTop + heroes[i].offsetHeight-viewOffset;
+        var sectionBottom = heroes[i].offsetTop + heroes[i].offsetHeight-viewOffset - activationOffset;
 
         if (scroll >= sectionTop && scroll < sectionBottom) {
-          navItems[i+1].classList.add('is-active');
+          navItems[i].classList.add('is-active');
       }
     }
+    
   });
 </script>
 

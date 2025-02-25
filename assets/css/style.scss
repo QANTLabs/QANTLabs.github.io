@@ -3,13 +3,17 @@
 
 @import "main.scss";
 
+body {
+    cursor: default;
+}
+
 #navbar {
-    // opacity: 0.95;
+    opacity: 0.95;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.05);
 }
 
 .is-active {
-    font-weight: 600;
+    // font-weight: 600;
 }
 
 .navbar-dropdown {
@@ -25,15 +29,14 @@
 }
 
 .navbar-item img{
-   
 
 }
 
-a.navbar-item:hover,
-.navbar-link:hover {
-    background-color: rgba($color: #fff, $alpha: 0.25) !important;
-    color: white !important;
-}
+// a.navbar-item:hover,
+// .navbar-link:hover {
+//     background-color: rgba($color: #fff, $alpha: 0.25) !important;
+//     color: white !important;
+// }
 
 // a.navbar-item.is-active {
 //     background-color: rgba($color: rgb(100, 100, 100), $alpha: 0.25) !important;
@@ -45,9 +48,9 @@ a.navbar-item:hover,
 //     }
 // }
 
-.navbar-link:not(.is-arrowless)::after {
-    border-color: grey;
-}
+// .navbar-link:not(.is-arrowless)::after {
+//     border-color: grey;
+// }
 
 
 #hero {
@@ -107,6 +110,7 @@ a.navbar-item:hover,
 }
 
 #about {
+
     .image {
         max-width: 20vmax;
         margin: auto;
@@ -120,13 +124,97 @@ a.navbar-item:hover,
         min-width: 25vmax;
         margin: 0.5rem;
     }
+
+    .about-image {
+        max-width: 100%;
+        height: auto;
+        border-radius: 12px; /* Soft rounded corners */
+        // box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08); /* Subtle shadow */
+    }
+
+    @media (max-width: 768px) { /* Mobile: Stack image on top */
+        .about-image {
+            margin-top: 20px;
+        }
+    }
+
+    // vision
+    .vision-container {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 15px;
+    }
+
+    .vision-card {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        background: #fff;
+        border-radius: 10px;
+        padding: 15px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease-in-out;
+    }
+
+    .vision-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .vision-icon {
+        font-size: 30px;
+    }
+
+    .vision-text h3 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .vision-text p {
+        font-size: 0.95rem;
+        color: #555;
+        margin: 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .about-image {
+            margin-top: 20px;
+        }
+    }
 }
 
 #research {
     .card {
         height: 100%;
-        padding: 0.25rem;
+        padding: 18px;
+        transition: all 0.3s ease-in-out;
+        cursor: default;
+        display: flex;
+        align-items: center;
+        border-radius: 10px;
+
     }
+
+    .card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .card-icon {
+        font-size: 32px;
+        background: #f5f5f5;
+        padding: 12px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+    }
+
 
     .card .title{
         padding-bottom: 1rem;
@@ -134,6 +222,7 @@ a.navbar-item:hover,
     
     .card-content {
         height: 100%;
+        margin: 0;
     }
     
     .columns {
@@ -169,6 +258,61 @@ a.navbar-item:hover,
 
     hr {
         background-color: black;
+    }
+
+    .contact-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        // max-width: 500px;
+    }
+
+    .contact-card {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        background: #fff;
+        border-radius: 10px;
+        padding: 15px;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .contact-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .contact-icon {
+        font-size: 28px;
+        background: #f5f5f5;
+        padding: 12px;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .contact-text {
+        font-size: 1rem;
+        color: #333;
+    }
+
+    .contact-text a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    .contact-text a:hover {
+        text-decoration: underline;
+    }
+
+    @media (min-width: 768px) {
+        .contact-grid {
+            flex-direction: row;
+        }
     }
 }
 
