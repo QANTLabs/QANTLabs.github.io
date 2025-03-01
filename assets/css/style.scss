@@ -54,30 +54,81 @@ body {
 
 
 #hero {
+    // background: linear-gradient(253deg,  #bfc0c0, #fff, #d6d6d6);
+    // background-size: 300% 300%;
+    // -webkit-animation: Background 25s ease infinite;
+    // -moz-animation: Background 25s ease infinite;
+    // animation: Background 25s ease infinite;
+
     // background: rgb(255, 255, 255);
     // background: -moz-linear-gradient(0deg, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0.75) 100%);
     // background: -webkit-linear-gradient(0deg, rgb(224, 224, 224) 0%, rgba(255, 255, 255, 0.75) 100%);
     // background: linear-gradient(0deg, rgb(198, 198, 198) 0%, rgba(255, 255, 255, 0.75) 100%);
     // filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000", endColorstr="#000000", GradientType=1);
-    background: linear-gradient(90deg, #e0e0e0, #ffffff, #c6c6c6);
-    background-size: 200% 200%;
-    animation: gradientAnimation 5s infinite alternate ease-in-out;
 
-    &::before {
-        // filter: blur(0.15rem);
-        // background-image: url("{{ '/assets/images/ql-hero-image.png' | relative_url }}");
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-attachment: fixed;
-        top: 0px;
-        right: 0px;
-        bottom: 0px;
-        left: 0px;
-        position: absolute;
-        // opacity: 0.25;
-        content: "";
+    background: linear-gradient(90deg, #a9bcd0, #fefcfb, #a9bcd0);
+    background-size: 200% 200%;
+    animation: gradientAnimation 6s infinite alternate ease-in-out;
+
+    // &::before {
+    //     // filter: blur(0.15rem);
+    //     // background-image: url("{{ '/assets/images/ql-hero-image.png' | relative_url }}");
+    //     background-position: center;
+    //     background-repeat: no-repeat;
+    //     background-size: cover;
+    //     background-attachment: fixed;
+    //     top: 0px;
+    //     right: 0px;
+    //     bottom: 0px;
+    //     left: 0px;
+    //     position: absolute;
+    //     // opacity: 0.25;
+    //     content: "";
+        
+    // }
+}
+
+  
+@-webkit-keyframes Background {
+    0% {
+      background-position: 0% 50%
     }
+    50% {
+      background-position: 100% 50%
+    }
+    100% {
+      background-position: 0% 50%
+    }
+  }
+  
+  @-moz-keyframes Background {
+    0% {
+      background-position: 0% 50%
+    }
+    50% {
+      background-position: 100% 50%
+    }
+    100% {
+      background-position: 0% 50%
+    }
+  }
+  
+  @keyframes Background {
+    0% {
+      background-position: 0% 50%
+    }
+    50% {
+      background-position: 100% 50%
+    }
+    100% {
+      background-position: 0% 50%
+    }
+  }
+
+.hero-body{
+
+    background: url(https://i.imgur.com/wCG2csZ.png);
+      
 }
 .title {
     margin: auto 0.75rem!important;
