@@ -38,8 +38,8 @@ Everyone is welcome—students, mentors, or anyone passionate about open-source 
 
 📢 **Connect with Us**
 
-💬 **Slack**: [QANT Labs Slack Workspace](https://github.com/QANTLabs)<br>
-📝 **Proposal Template**: [View Here](https://github.com/QANTLabs)<br>
+💬 **Slack**: [QANT Labs Slack Workspace (Coming Soon)]()<br>
+📝 **Proposal Template**: [View Here (Coming Soon)]()<br>
 💻 **Check Our Projects**: [QANT Labs GitHub Repository](https://github.com/QANTLabs)
 
 <br>
