@@ -1,0 +1,80 @@
+---
+layout: compress
+---
+
+<!DOCTYPE html>
+<html>
+{% include head.html %}
+
+<body>
+    {% include navbar.html %}
+
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container has-text-centered" id="page-section">
+                <div class="section">
+                    {% if page.intro_image %}
+                      <p class="has-text-centered">
+                        <img alt="{{ page.title }}" src="{{ page.intro_image | relative_url }}" class="intro-image" />
+                      </p>
+                    {% endif %}
+
+                    <h1 class="title is-1 has-text-weight-bold ptop-2">{{ page.title }}</h1>
+                    {% if page.tagline %}
+                      <p class="gsoc-subtitle">{{ page.tagline }}</p>
+                    {% endif %}
+
+                    <hr class="has-background-grey-lighter">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+      <div class="section">
+        <div class="content gsoc-content">{{ content }}</div>
+
+        <!-- GSoC accordion -->
+        <div class="gsoc-accordion">
+          {% assign ideas = site.pages | where_exp: "p", "p.path contains 'gsoc/ideas/'" | sort: 'title' %}
+          {% for idea in ideas %}
+            <div class="gsoc-item box">
+              <header class="gsoc-header" data-target="{{ idea.url | slugify }}-panel">
+                <h3 class="title is-4">{{ idea.title }}</h3>
+                <p class="subtitle is-6 has-text-grey">{{ idea.description }}</p>
+              </header>
+              <div id="{{ idea.url | slugify }}-panel" class="gsoc-body" style="display: none;">
+                {{ idea.content | markdownify }}
+                <hr>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('.gsoc-header').forEach(function(h) {
+          h.style.cursor = 'pointer';
+          var target = h.nextElementSibling;
+          if (!target || !target.classList.contains('gsoc-body')) return;
+          target.style.display = 'none';
+          h.addEventListener('click', function () {
+            if (target.style.display === 'none') {
+              target.style.display = 'block';
+              h.classList.add('is-active');
+            } else {
+              target.style.display = 'none';
+              h.classList.remove('is-active');
+            }
+          });
+        });
+      });
+    </script>
+
+    {% include footer.html %}
+</body>
+
+</html>

@@ -131,10 +131,23 @@ body {
       
 }
 .title {
-    margin: auto 0.75rem!important;
+    margin: auto 1.0rem!important;
 }
 .subtitle {
-    letter-spacing: 0.25rem;
+    margin: auto 2.0rem!important;
+
+    // letter-spacing: 0.25rem;
+}
+
+.gsoc-subtitle {
+    margin: auto 2.0rem!important;
+    padding-top: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 400;
+}
+
+.ptop-2{
+    padding-top: 2%!important;
 }
 
 .hero-description{

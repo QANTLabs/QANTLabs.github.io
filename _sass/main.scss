@@ -73,3 +73,54 @@ hr {
         }
     }
 }
+
+/* GSoC accordion styles */
+.gsoc-accordion {
+    .gsoc-item {
+        margin-bottom: 0.75rem;
+        .gsoc-header {
+            display: block; /* stack title and description vertically */
+            text-align: left;
+            padding: 0.5rem 0.75rem;
+            h3.title {
+                margin-bottom: 0.25rem;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis; /* keep title on a single line */
+                margin: 0; /* override global .title margin */
+                padding-left: 0; /* align with subtitle */
+            }
+            p.subtitle {
+                margin: 1;
+                padding-left: 0; /* align with title */
+                letter-spacing: normal; /* undo global wide spacing */
+                font-kerning: normal;
+            }
+        }
+        .gsoc-body {
+            padding: 0.75rem;
+            border-top: 1px solid rgba(0,0,0,0.06);
+            text-align: left; /* ensure body content is left aligned */
+            display: none; /* collapsed by default, toggled via JS */
+        }
+    }
+}
+
+.gsoc-content {
+    font-size: 1.12rem;
+    line-height: 1.5;
+    font-weight: 300;
+}
+
+/* Slightly larger intro paragraph within gsoc pages */
+.gsoc-content p:first-of-type {
+    font-size: 1.2rem;
+    font-weight: 400;
+    padding-bottom: 20px;
+}
+
+/* Make intro image smaller in GSoC layout */
+.intro-image {
+    max-width: 400px;
+    height: auto;
+}
