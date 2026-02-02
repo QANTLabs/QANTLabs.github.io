@@ -1,10 +1,7 @@
----
-layout: compress
----
-
 <!DOCTYPE html>
 <html>
 {% include head.html %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <body>
     {% include navbar.html %}
@@ -35,46 +32,57 @@ layout: compress
         <div class="content gsoc-content">{{ content }}</div>
 
         <!-- GSoC accordion -->
-        <div class="gsoc-accordion">
-          {% assign ideas = site.pages | where_exp: "p", "p.path contains 'gsoc/ideas/'" | sort: 'title' %}
-          {% for idea in ideas %}
-            <div class="gsoc-item box">
-              <header class="gsoc-header" data-target="{{ idea.url | slugify }}-panel">
-                <h3 class="title is-4">{{ idea.title }}</h3>
-                <p class="subtitle is-6 has-text-grey">{{ idea.description }}</p>
-              </header>
-              <div id="{{ idea.url | slugify }}-panel" class="gsoc-body" style="display: none;">
-                {{ idea.content | markdownify }}
-                <hr>
-              </div>
-            </div>
-          {% endfor %}
-        </div>
+        {% assign ideas = site.pages | where_exp: "p", "p.path contains 'gsoc/ideas/'" | sort: 'title' %}
+        {% for idea in ideas %}
+          <div class="accordion">
+            <span class="accordion-title">{{ idea.title }}</span>
+            <span class="accordion-icon">
+              <i class="fas fa-chevron-down"></i>
+            </span>
+          </div>
+          <div class="panel">
+            {{ idea.content | markdownify }}
+          </div>
+        {% endfor %}
 
       </div>
     </div>
 
+    {% include footer.html %}
+
     <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        document.querySelectorAll('.gsoc-header').forEach(function(h) {
-          h.style.cursor = 'pointer';
-          var target = h.nextElementSibling;
-          if (!target || !target.classList.contains('gsoc-body')) return;
-          target.style.display = 'none';
-          h.addEventListener('click', function () {
-            if (target.style.display === 'none') {
-              target.style.display = 'block';
-              h.classList.add('is-active');
+      (function() {
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+          acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            var icon = this.querySelector('.accordion-icon i');
+
+            if (panel.style.maxHeight) {
+              panel.style.maxHeight = null;
+              if (icon) icon.style.transform = 'rotate(0deg)';
             } else {
-              target.style.display = 'none';
-              h.classList.remove('is-active');
+              panel.style.maxHeight = panel.scrollHeight + "px";
+              if (icon) icon.style.transform = 'rotate(180deg)';
             }
           });
-        });
-      });
-    </script>
+        }
 
-    {% include footer.html %}
+        // Open all accordions by default
+        window.addEventListener('load', function() {
+          for (i = 0; i < acc.length; i++) {
+            var panel = acc[i].nextElementSibling;
+            var icon = acc[i].querySelector('.accordion-icon i');
+            panel.style.maxHeight = panel.scrollHeight + "px";
+            acc[i].classList.add("active");
+            if (icon) icon.style.transform = 'rotate(180deg)';
+          }
+        });
+      })();
+    </script>
 </body>
 
 </html>
