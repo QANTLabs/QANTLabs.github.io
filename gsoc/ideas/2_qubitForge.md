@@ -4,7 +4,6 @@ title: QubitForge - Visual Quantum Circuit Designer
 ---
 
 **Brief Explanation**
-
 QubitForge is a browser-based quantum circuit design and simulation platform inspired by Tinkercad's intuitive approach to electronics. Users build quantum circuits visually by dragging and dropping qubits, gates, and measurements onto a workspace, then immediately observe simulation results through live visualizations.
 
 
@@ -17,7 +16,6 @@ QubitForge is a browser-based quantum circuit design and simulation platform ins
 The UI mimics Tinkercad's workspace with central canvas, left component palette, and right properties/output panel.
 
 **Expected Results**
-
 - **Circuit Workspace:** Grid-based canvas with zoom, pan, and undo/redo support
 - **Gate Palette:** Categorized component library with drag-and-drop functionality
 - **Wire System:** Visual qubit wires connecting gates with automatic routing
@@ -26,7 +24,6 @@ The UI mimics Tinkercad's workspace with central canvas, left component palette,
 - **Circuit Library:** Save/load circuits, shareable circuit links
 
 **Knowledge Prerequisites**
-
 - **Frontend Development:** ReactJS, React DnD or similar drag-drop library, Canvas/SVG graphics
 - **Quantum Computing:** Understanding of quantum gates, circuits, and measurements
 - **Visualization:** Chart libraries for simulation output display

@@ -103,12 +103,9 @@ body {
     border-radius: 0px;
     border-bottom-left-radius: 12px;
     border-bottom-right-radius: 12px;
-    margin-bottom: 0;
-    padding: 1rem 2rem 1rem 2rem;
-
-
+    padding: 1rem 3rem 1rem 3rem;
+    font-weight: 400;
     // Content wrapper - inner div to handle padding without affecting maxHeight calculation
-
 
     // Style headings
     h1, h2, h3, h4, h5, h6 {
@@ -128,7 +125,7 @@ body {
         color: #2c3e50;
         font-size: 1.12rem;
         display: inline-block;
-        margin-top: 0.75rem;
+        margin-top: 1.5rem;
         margin-bottom: 0.2rem;
 
         &:first-child {
@@ -158,11 +155,10 @@ body {
 
     // Style paragraphs
     p {
-        margin-bottom: 1rem;
+        margin-bottom: 1.5rem !important;
         line-height: 1.5;
         color: #4a5568;
         font-size: 1rem;
-        margin-bottom: 10px!important;
         // &:has(> strong:first-child) {
         //     margin-top: 0.5rem;
         // }
@@ -279,7 +275,8 @@ body {
         border-radius: 0px;
         border-bottom-left-radius: 12px;
         border-bottom-right-radius: 12px;
-
+        padding: 1rem 1.5rem 1rem 1.5rem;
+       
         & > * {
             padding: 1rem;
         }

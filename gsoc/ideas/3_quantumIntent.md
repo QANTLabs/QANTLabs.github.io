@@ -23,28 +23,22 @@ The UI follows ChatGPT patterns with chat panel on the left and circuit visualiz
 - **Constraint Handling:** Adapt circuits to user-specified qubit counts and hardware constraints
 
 **Knowledge Prerequisites**
-
 - **Frontend Development:** ReactJS, state management, real-time updates
 - **LLM Integration:** OpenAI API or similar for intent parsing (or rule-based NLP)
 - **Quantum Computing:** Circuit construction, common algorithms, gate decomposition
 - **Visualization:** Circuit diagram rendering, SVG graphics
 
 **Mentors**
-
 Shehani, Roshan, Don
 
 **Estimated Project Length**
-
 450 hours
 
 **GitHub URL**
-
 TBA
 
 **Difficulty**
-
 Medium-Hard
 
 **Slack Channel**
-
 #quantumintent
