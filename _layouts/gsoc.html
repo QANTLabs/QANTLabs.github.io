@@ -20,8 +20,6 @@
                     {% if page.tagline %}
                       <p class="gsoc-subtitle">{{ page.tagline }}</p>
                     {% endif %}
-
-                    <hr class="has-background-grey-lighter">
                 </div>
             </div>
         </div>
@@ -41,7 +39,7 @@
             </span>
           </div>
           <div class="panel">
-            {{ idea.content | markdownify }}
+            {{ idea.content }}
           </div>
         {% endfor %}
 

@@ -16,8 +16,6 @@ QuantumTrace is a visual debugging and tracing platform for quantum circuits tha
 
 The UI draws inspiration from Chrome DevTools and VS Code Debugger with a timeline-based execution view, state inspection panel, and breakpoint controls.
 
----
-
 **Expected Results**
 
 - **Debugger Interface:** Timeline scrubber, step/run controls, breakpoint markers
@@ -27,8 +25,6 @@ The UI draws inspiration from Chrome DevTools and VS Code Debugger with a timeli
 - **Circuit Import:** Parse OpenQASM and visualize any quantum circuit
 - **Execution History:** View and compare states at different execution points
 
----
-
 **Knowledge Prerequisites**
 
 - **Frontend Development:** ReactJS, state management, complex UI interactions
@@ -36,31 +32,21 @@ The UI draws inspiration from Chrome DevTools and VS Code Debugger with a timeli
 - **Visualization:** D3.js or Three.js for state visualizations, timeline components
 - **Parsing:** Basic compiler concepts for OpenQASM parsing
 
----
-
 **Mentors**
 
 Shehani, Roshan, Don
-
----
 
 **Estimated Project Length**
 
 600 hours
 
----
-
 **GitHub URL**
 
 TBA
 
----
-
 **Difficulty**
 
 Hard
-
----
 
 **Slack Channel**
 

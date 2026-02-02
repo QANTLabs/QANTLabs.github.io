@@ -22,8 +22,6 @@ The UI follows ChatGPT patterns with chat panel on the left and circuit visualiz
 - **Code Export:** Generate executable code for Qiskit, PennyLane, or Cirq
 - **Constraint Handling:** Adapt circuits to user-specified qubit counts and hardware constraints
 
----
-
 **Knowledge Prerequisites**
 
 - **Frontend Development:** ReactJS, state management, real-time updates
@@ -31,31 +29,21 @@ The UI follows ChatGPT patterns with chat panel on the left and circuit visualiz
 - **Quantum Computing:** Circuit construction, common algorithms, gate decomposition
 - **Visualization:** Circuit diagram rendering, SVG graphics
 
----
-
 **Mentors**
 
 Shehani, Roshan, Don
-
----
 
 **Estimated Project Length**
 
 450 hours
 
----
-
 **GitHub URL**
 
 TBA
 
----
-
 **Difficulty**
 
 Medium-Hard
-
----
 
 **Slack Channel**
 
