@@ -46,7 +46,7 @@ We recommend starting early to build relationships with mentors and refine your 
 
 For inquiries about GSoC at QANT Labs, please reach out to our team:
 
-- **Email**: gsoc@qantlabs.com
+- **Email**: [team@qantlabs.com.au](mailto:team@qantlabs.com.au)
 - **Slack**: Join our workspace at [QANT Labs Slack](https://app.slack.com/huddle/T0AD69UH8GY/C0AD6AFTD7S)
 - **Proposal Template**: [Available here](https://docs.google.com/document/d/e/2PACX-1vRtSux2oJfW_ZkqIp43mYsY-hJoOu9UjBRPAmw0kVErPItIsI44hSp56xu9nHPU8Mk4KGcR8DV6-B1I/pub)
 
