@@ -6,9 +6,10 @@ layout: compress
 <html>
 {% include head.html %}
 
-<body>
+<body class="non-gsoc-site">
   {% include navbar.html %}
   {% include showcase.html %}
+  {% include qomposer-showcase.html %}
   {% include about.html %}
   {% include research.html %}
   <!-- {% include publications.html %} -->
@@ -18,26 +19,32 @@ layout: compress
   {% include footer.html %}
 </body>
 <script>
-  var navItems = document.getElementsByClassName('navbar-item');
-  var heroes = document.getElementsByClassName('hero');
+  var navItems = document.querySelectorAll('.navbar-item[data-section-target]');
+  var sections = Array.prototype.map.call(navItems, function (item) {
+    return {
+      item: item,
+      section: document.getElementById(item.getAttribute('data-section-target'))
+    };
+  }).filter(function (entry) {
+    return entry.section;
+  });
   const viewOffset = 200; 
 
   window.addEventListener("scroll", function (event) {
     var scroll = this.scrollY;
-    var position = window.pageYOffset;
 
-    for (var i = 0; i < navItems.length; i++) {
-      navItems[i].classList.remove('is-active');
-    }
+    sections.forEach(function (entry) {
+      entry.item.classList.remove('is-active');
+    });
 
-    for (var i = 0; i < heroes.length; i++) {
-        var sectionTop = heroes[i].offsetTop-viewOffset;
-        var sectionBottom = heroes[i].offsetTop + heroes[i].offsetHeight-viewOffset - activationOffset;
+    sections.forEach(function (entry) {
+        var sectionTop = entry.section.offsetTop - viewOffset;
+        var sectionBottom = entry.section.offsetTop + entry.section.offsetHeight - viewOffset;
 
         if (scroll >= sectionTop && scroll < sectionBottom) {
-          navItems[i].classList.add('is-active');
+          entry.item.classList.add('is-active');
       }
-    }
+    });
     
   });
 </script>

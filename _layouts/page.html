@@ -6,7 +6,7 @@ layout: compress
 <html>
 {% include head.html %}
 
-<body>
+<body{% unless page.url contains '/gsoc' %} class="non-gsoc-site"{% endunless %}>
     {% include navbar.html %}
     <section class="hero is-fullheight">
         <div class="hero-body">
