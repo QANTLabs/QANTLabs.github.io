@@ -19,7 +19,8 @@ body {
 // }
 
 .navbar-item-highlight,
-.navbar-item-product {
+.navbar-item-product,
+.navbar-item-shiplines {
     border-radius: 8px;
     color: #ffffff !important;
     font-weight: bold;
@@ -31,6 +32,10 @@ body {
 
 .navbar-item-product {
     background-color: #0991AF !important;
+}
+
+.navbar-item-shiplines {
+    background-color: #d8430f !important;
 }
 
 // Accordion styling
@@ -1201,7 +1206,8 @@ body {
         }
 
         .navbar-item-highlight,
-        .navbar-item-product {
+        .navbar-item-product,
+        .navbar-item-shiplines {
             border-radius: 8px;
             color: #ffffff !important;
             margin: 0.4rem 0 0.4rem 0.35rem;
@@ -1225,6 +1231,16 @@ body {
             &:hover,
             &:focus {
                 background: var(--ql-accent-hover) !important;
+                color: #ffffff !important;
+            }
+        }
+
+        .navbar-item-shiplines {
+            background: #d8430f !important;
+
+            &:hover,
+            &:focus {
+                background: #d8430f !important;
                 color: #ffffff !important;
             }
         }
@@ -1850,7 +1866,8 @@ body {
 
     @media (max-width: 768px) {
         #navbar {
-            .navbar-item-highlight {
+            .navbar-item-highlight,
+            .navbar-item-shiplines {
                 margin: 0;
             }
         }
