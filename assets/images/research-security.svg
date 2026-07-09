@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f3f7ff"/>
+      <stop offset="0.55" stop-color="#d9e8f8"/>
+      <stop offset="1" stop-color="#9fb8d8"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="0" x2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#ffffff" stop-opacity="0.68"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="560" fill="url(#bg)"/>
+  <g opacity="0.36" fill="none" stroke="#31465f" stroke-width="12">
+    <path d="M610 -60 C760 70 810 232 748 560"/>
+    <path d="M760 -20 C875 92 930 248 878 566"/>
+    <path d="M470 0 C630 148 676 300 596 560"/>
+  </g>
+  <g opacity="0.42" fill="none" stroke="url(#glass)" stroke-width="34">
+    <path d="M628 -40 C782 90 826 238 762 560"/>
+    <path d="M202 560 C370 410 468 254 492 0"/>
+  </g>
+  <g opacity="0.28" fill="none" stroke="#4c7dd9" stroke-width="1.4">
+    <path d="M94 108 H336 V350 H94 Z"/>
+    <path d="M132 108 V72 C132 22 298 22 298 72 V108"/>
+    <path d="M214 190 V272"/>
+    <circle cx="214" cy="178" r="20"/>
+  </g>
+  <g opacity="0.5" fill="#ffffff">
+    <circle cx="108" cy="116" r="5"/>
+    <circle cx="336" cy="350" r="6"/>
+    <circle cx="762" cy="172" r="4"/>
+    <circle cx="812" cy="258" r="7"/>
+  </g>
+</svg>

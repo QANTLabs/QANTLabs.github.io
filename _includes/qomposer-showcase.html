@@ -1,7 +1,7 @@
-<section class="section qomposer-showcase" id="qomposer">
+<section class="section qomposer-showcase site-section-lilac" id="qomposer">
     <div class="container">
-        <div class="columns is-vcentered is-variable is-6">
-            <div class="column is-half">
+        <div class="qomposer-layout">
+            <div>
                 <p class="qomposer-eyebrow">Product showcase</p>
                 <h2 class="qomposer-title">Qomposer</h2>
                 <p class="qomposer-subtitle">Verified, hardware-neutral quantum-circuit copilot.</p>
@@ -10,46 +10,20 @@
                     the result across quantum backends. Build with confidence from the first circuit sketch to a
                     reproducible, hardware-neutral output.
                 </p>
-                <a href="{{ '/Qomposer' | relative_url }}" class="qomposer-button">Explore Qomposer</a>
+                <div class="qomposer-actions">
+                    <a href="{{ '/Qomposer' | relative_url }}" class="qomposer-button">Explore Qomposer</a>
+                    <span class="qomposer-proof">Retrieval-first verification loop</span>
+                </div>
             </div>
 
-            <div class="column">
-                <div class="qomposer-panel" aria-label="Qomposer verification and backend-neutral circuit preview">
-                    <div class="qomposer-panel-header">
-                        <span>Verification loop</span>
-                        <span class="qomposer-badge">verified</span>
-                    </div>
-
-                    <div class="qomposer-circuit">
-                        <div class="qomposer-wire">
-                            <span class="qomposer-qubit">q0</span>
-                            <span class="qomposer-line"></span>
-                            <span class="qomposer-gate qomposer-gate-teal">H</span>
-                            <span class="qomposer-line"></span>
-                            <span class="qomposer-control"></span>
-                            <span class="qomposer-line"></span>
-                        </div>
-                        <div class="qomposer-wire">
-                            <span class="qomposer-qubit">q1</span>
-                            <span class="qomposer-line"></span>
-                            <span class="qomposer-gate qomposer-gate-blue">X</span>
-                            <span class="qomposer-line"></span>
-                            <span class="qomposer-target"></span>
-                            <span class="qomposer-line"></span>
-                        </div>
-                        <div class="qomposer-wire">
-                            <span class="qomposer-qubit">c0</span>
-                            <span class="qomposer-line"></span>
-                            <span class="qomposer-measure">M</span>
-                            <span class="qomposer-line is-wide"></span>
-                        </div>
-                    </div>
-
-                    <div class="qomposer-backends">
-                        <span><i class="shape diamond"></i>Qiskit Aer</span>
-                        <span><i class="shape triangle"></i>Braket SV1</span>
-                        <span><i class="shape square"></i>IBM Brisbane</span>
-                    </div>
+            <div class="qomposer-notes" aria-label="Qomposer verification and backend-neutral circuit preview">
+                <div>
+                    <span>Verification loop</span>
+                    <p>verified</p>
+                </div>
+                <div>
+                    <span>Backends</span>
+                    <p>Qiskit Aer, Braket SV1, IBM Brisbane</p>
                 </div>
             </div>
         </div>

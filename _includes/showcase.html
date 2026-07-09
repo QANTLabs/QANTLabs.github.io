@@ -1,17 +1,21 @@
-<section class="hero is-fullheight has-text-centered" id="hero">
-  <div class="hero-body">
-    <div class="container has-text-left-mobile"> <!-- Aligns left on mobile -->
-      <h3 class="subText has-text-black-bis py-4">Welcome to</h3>
-      <h1 class="title has-text-black is-size-1 has-text-weight-bold" style="font-size: 70px!important;">
-        {{site.title}}
-      </h1>
-      <div class="hero-description">
-        <p class="is-size-4 px-5-desktop has-text-black-bis has-text-weight-medium is-marginless">
-          At QANT Labs, we transform quantum science, AI, cybersecurity, and privacy research into practical, secure solutions for the future.
-        </p>
+<section class="hero" id="hero">
+  <div class="hero-frame">
+    <div class="hero-body">
+      <div class="container">
+        <div class="hero-content">
+          <p class="subText">Quantum research, engineered for trust</p>
+          <h1 class="title">{{site.title}}</h1>
+          <div class="hero-description">
+            <p>
+              We transform quantum science, AI, cybersecurity, and privacy research into practical, secure systems for the future.
+            </p>
+          </div>
+          <div class="hero-actions">
+            <a href="{{site.url}}{{site.baseurl}}/#qomposer" class="button hero-button-primary">Explore Qomposer</a>
+            <a href="{{site.url}}{{site.baseurl}}/#research" class="button hero-button-secondary">View Research</a>
+          </div>
+        </div>
       </div>
-      <a href="{{site.url}}{{site.baseurl}}/#qomposer"
-        class="py-2 button is-black is-rounded is-outlined is-uppercase has-text-weight-normal">Explore More</a>
     </div>
   </div>
 </section>

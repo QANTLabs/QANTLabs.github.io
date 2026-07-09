@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#fbfdff"/>
+      <stop offset="0.5" stop-color="#e8f0fb"/>
+      <stop offset="1" stop-color="#c1d4ea"/>
+    </linearGradient>
+    <radialGradient id="core" cx="58%" cy="42%" r="38%">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="0.46" stop-color="#d4e5f5" stop-opacity="0.62"/>
+      <stop offset="1" stop-color="#4c7dd9" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="900" height="560" fill="url(#bg)"/>
+  <rect width="900" height="560" fill="url(#core)"/>
+  <g fill="none" stroke="#31465f" opacity="0.25">
+    <circle cx="522" cy="236" r="86" stroke-width="2"/>
+    <circle cx="522" cy="236" r="130" stroke-width="1.4"/>
+    <circle cx="522" cy="236" r="182" stroke-width="1"/>
+    <path d="M328 236 H716"/>
+    <path d="M522 42 V430"/>
+    <path d="M385 98 L660 374"/>
+    <path d="M660 98 L385 374"/>
+  </g>
+  <g fill="#ffffff" opacity="0.72">
+    <circle cx="522" cy="236" r="12"/>
+    <circle cx="608" cy="236" r="6"/>
+    <circle cx="436" cy="236" r="5"/>
+    <circle cx="522" cy="106" r="6"/>
+    <circle cx="522" cy="366" r="5"/>
+    <circle cx="660" cy="374" r="7"/>
+    <circle cx="385" cy="98" r="5"/>
+  </g>
+  <g opacity="0.22" fill="#057a92">
+    <text x="480" y="270" font-family="Arial, sans-serif" font-size="104" font-weight="700">AI</text>
+  </g>
+</svg>
