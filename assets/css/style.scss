@@ -101,6 +101,7 @@ a:hover {
         color: #101010 !important;
         font-size: 1.35rem;
         font-weight: 600;
+        line-height: 1;
     }
 
     .navbar-item:hover,
@@ -202,6 +203,10 @@ body.home-page #navbar:not(.is-scrolled) {
         line-height: 0.98;
         margin: 0 0 1.35rem !important;
         max-width: 11ch;
+    }
+
+    .title span {
+        display: inline;
     }
 
     .hero-description {
@@ -451,7 +456,7 @@ body.home-page #navbar:not(.is-scrolled) {
         border-bottom: 1px solid var(--line);
         display: grid;
         gap: 1.2rem;
-        grid-template-columns: 4rem minmax(0, 1fr);
+        grid-template-columns: minmax(0, 1fr);
         padding: clamp(1.35rem, 3vw, 2.2rem) 0;
     }
 
@@ -462,13 +467,6 @@ body.home-page #navbar:not(.is-scrolled) {
     .research-card:nth-child(even) {
         border-left: 1px solid var(--line);
         padding-left: clamp(1.5rem, 4vw, 3rem);
-    }
-
-    .card-icon {
-        color: rgba(16, 16, 16, 0.46);
-        font-size: 0.9rem;
-        font-weight: 400;
-        padding-top: 0.2rem;
     }
 
     .card-content {
@@ -915,28 +913,73 @@ body.home-page #navbar:not(.is-scrolled) {
     #navbar {
         .container {
             display: block;
+            min-height: 0;
+            max-width: none;
+        }
+
+        .navbar-brand {
+            align-items: center;
+            display: flex;
+            height: 64px;
+            min-height: 64px;
+            position: relative;
+            width: 100%;
+            z-index: 2;
+        }
+
+        .nav-brand-text {
+            display: block;
+            height: 64px;
+            line-height: 64px;
+            padding-left: 1rem !important;
+            padding-right: 0.75rem !important;
+            padding-bottom: 0 !important;
+            padding-top: 0 !important;
+        }
+
+        .navbar-burger {
+            align-self: center;
+            height: 64px;
+            width: 64px;
         }
 
         .navbar-menu {
             background: rgba(244, 243, 238, 0.96) !important;
             border-top: 1px solid var(--line);
-            padding: 1rem 0;
+            bottom: 0;
+            box-shadow: none;
+            left: 0;
+            overflow-y: auto;
+            padding: calc(64px + 2rem) 0 2rem;
+            position: fixed;
+            right: 0;
+            top: 0;
+            width: 100vw;
+            z-index: 1;
+        }
+
+        .navbar-menu.is-active {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .navbar-end {
             align-items: flex-start;
             gap: 0;
+            width: 100%;
         }
 
         .navbar-item {
             display: block;
-            padding: 0.75rem 1rem;
+            font-size: 1rem;
+            padding: 0.9rem 1.5rem;
         }
 
         .navbar-item-highlight,
         .navbar-item-product {
             border: 0;
-            padding: 0.75rem 1rem;
+            padding: 0.9rem 1.5rem;
         }
     }
 
@@ -993,11 +1036,30 @@ body.home-page #navbar:not(.is-scrolled) {
         }
 
         .hero-body {
-            padding: 8rem 1.1rem 5.5rem;
+            padding: 7.25rem 1.1rem 5.5rem;
+        }
+
+        .hero-content {
+            max-width: none;
+            width: 100%;
         }
 
         .title {
-            font-size: clamp(3.35rem, 18vw, 5rem);
+            font-size: min(26vw, 7.4rem);
+            line-height: 0.95;
+            margin-bottom: 1.5rem !important;
+            max-width: none;
+            text-align: center;
+            width: 100%;
+        }
+
+        .title span {
+            display: block;
+        }
+
+        .title span + span {
+            font-weight: 500;
+            margin-top: 0.08em;
         }
 
         .hero-actions {
