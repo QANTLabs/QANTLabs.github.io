@@ -6,20 +6,21 @@ layout: compress
 <html>
 {% include head.html %}
 
-<body class="non-gsoc-site">
+<body class="non-gsoc-site home-page">
   {% include navbar.html %}
   {% include showcase.html %}
   {% include qomposer-showcase.html %}
   {% include about.html %}
   {% include research.html %}
   <!-- {% include publications.html %} -->
-  {% include careers.html %}
   {% include contact.html %}
   <!--Footer begins here-->
   {% include footer.html %}
 </body>
 <script>
   var navItems = document.querySelectorAll('.navbar-item[data-section-target]');
+  var navbar = document.getElementById('navbar');
+  var hero = document.getElementById('hero');
   var sections = Array.prototype.map.call(navItems, function (item) {
     return {
       item: item,
@@ -29,9 +30,18 @@ layout: compress
     return entry.section;
   });
   const viewOffset = 200; 
+  var navHeight = navbar ? navbar.offsetHeight : 72;
+
+  function updateNavbarBackdrop() {
+    if (!navbar || !hero) return;
+    navbar.classList.toggle('is-scrolled', window.scrollY > hero.offsetHeight - navHeight);
+  }
+
+  updateNavbarBackdrop();
 
   window.addEventListener("scroll", function (event) {
     var scroll = this.scrollY;
+    updateNavbarBackdrop();
 
     sections.forEach(function (entry) {
       entry.item.classList.remove('is-active');

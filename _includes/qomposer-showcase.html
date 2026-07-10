@@ -11,19 +11,22 @@
                     reproducible, hardware-neutral output.
                 </p>
                 <div class="qomposer-actions">
-                    <a href="{{ '/Qomposer' | relative_url }}" class="qomposer-button">Explore Qomposer</a>
-                    <span class="qomposer-proof">Retrieval-first verification loop</span>
+                    <a href="{{ '/Qomposer' | relative_url }}" class="qomposer-button">Prototype Page</a>
                 </div>
             </div>
 
-            <div class="qomposer-notes" aria-label="Qomposer verification and backend-neutral circuit preview">
+            <div class="qomposer-notes" aria-label="Qomposer supported quantum backends">
                 <div>
-                    <span>Verification loop</span>
-                    <p>verified</p>
-                </div>
-                <div>
-                    <span>Backends</span>
-                    <p>Qiskit Aer, Braket SV1, IBM Brisbane</p>
+                    <span>Backends supported</span>
+                    <ul class="qomposer-backends">
+                        <li>Qiskit Aer</li>
+                        <li>Braket SV1</li>
+                        <li>IBM Brisbane</li>
+                        <li>Quantinuum H2</li>
+                        <li>IQM Garnet</li>
+                        <li>Pawsey · Quantum Brilliance</li>
+                    </ul>
+                    <p class="qomposer-mvp-note">Concept MVP - Statevector physics is real and computed in-browser.</p>
                 </div>
             </div>
         </div>

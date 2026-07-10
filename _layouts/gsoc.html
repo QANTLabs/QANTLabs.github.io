@@ -3,48 +3,55 @@
 {% include head.html %}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-<body>
+<body class="gsoc-page">
     {% include navbar.html %}
 
-    <section class="hero">
-        <div class="hero-body">
-            <div class="container has-text-centered" id="page-section">
-                <div class="section">
-                    {% if page.intro_image %}
-                      <p class="has-text-centered">
-                        <img alt="{{ page.title }}" src="{{ page.intro_image | relative_url }}" class="intro-image" />
-                      </p>
-                    {% endif %}
+    <main class="gsoc-shell">
+      <div class="container">
+        <section class="gsoc-paper gsoc-intro">
+          <div class="gsoc-intro-header">
+            {% if page.intro_image %}
+              <div class="gsoc-mark">
+                <img alt="{{ page.title }}" src="{{ page.intro_image | relative_url }}" class="intro-image" />
+              </div>
+            {% endif %}
 
-                    <h1 class="title is-1 has-text-weight-bold ptop-2">{{ page.title }}</h1>
-                    {% if page.tagline %}
-                      <p class="gsoc-subtitle">{{ page.tagline }}</p>
-                    {% endif %}
-                </div>
+            <div class="gsoc-intro-copy">
+              <p class="gsoc-eyebrow">Google Summer of Code</p>
+              <h1 class="title is-1">{{ page.title }}</h1>
+              {% if page.tagline %}
+                <p class="gsoc-subtitle">{{ page.tagline }}</p>
+              {% endif %}
             </div>
-        </div>
-    </section>
-
-    <div class="container">
-      <div class="section">
-        <div class="content gsoc-content">{{ content }}</div>
-
-        <!-- GSoC accordion -->
-        {% assign ideas = site.pages | where_exp: "p", "p.path contains 'gsoc/ideas/'" | sort: 'title' %}
-        {% for idea in ideas %}
-          <div class="accordion">
-            <span class="accordion-title">{{ idea.title }}</span>
-            <span class="accordion-icon">
-              <i class="fas fa-chevron-down"></i>
-            </span>
           </div>
-          <div class="panel">
-            {{ idea.content }}
+
+          <div class="content gsoc-content">{{ content }}</div>
+        </section>
+
+        <section class="gsoc-projects" aria-label="GSoC project ideas">
+          {% assign ideas = site.pages | where_exp: "p", "p.path contains 'gsoc/ideas/'" | sort: 'num' %}
+          <div class="gsoc-ideas-list">
+            {% for idea in ideas %}
+              <article class="gsoc-project-card">
+                <button class="accordion" type="button" aria-expanded="false">
+                  <span class="accordion-kicker">Project {{ idea.num }}</span>
+                  <span class="accordion-title">{{ idea.title }}</span>
+                  <span class="accordion-icon" aria-hidden="true">
+                    <i class="fas fa-chevron-down"></i>
+                  </span>
+                </button>
+                <div class="panel">
+                  <div class="panel-inner">
+                    {{ idea.content }}
+                  </div>
+                </div>
+              </article>
+            {% endfor %}
           </div>
-        {% endfor %}
+        </section>
 
       </div>
-    </div>
+    </main>
 
     {% include footer.html %}
 
@@ -61,9 +68,11 @@
 
             if (panel.style.maxHeight) {
               panel.style.maxHeight = null;
+              this.setAttribute('aria-expanded', 'false');
               if (icon) icon.style.transform = 'rotate(0deg)';
             } else {
               panel.style.maxHeight = panel.scrollHeight + "px";
+              this.setAttribute('aria-expanded', 'true');
               if (icon) icon.style.transform = 'rotate(180deg)';
             }
           });
@@ -76,7 +85,17 @@
             var icon = acc[i].querySelector('.accordion-icon i');
             panel.style.maxHeight = panel.scrollHeight + "px";
             acc[i].classList.add("active");
+            acc[i].setAttribute('aria-expanded', 'true');
             if (icon) icon.style.transform = 'rotate(180deg)';
+          }
+        });
+
+        window.addEventListener('resize', function() {
+          for (i = 0; i < acc.length; i++) {
+            var panel = acc[i].nextElementSibling;
+            if (panel.style.maxHeight) {
+              panel.style.maxHeight = panel.scrollHeight + "px";
+            }
           }
         });
       })();

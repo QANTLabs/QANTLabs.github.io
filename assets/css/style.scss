@@ -3,15 +3,6 @@
 
 @import "main.scss";
 
-@font-face {
-    font-display: swap;
-    font-family: "Arlette";
-    font-style: normal;
-    font-weight: 300 700;
-    src: url("../fonts/Arlette.woff2") format("woff2"),
-         url("../fonts/Arlette.woff") format("woff");
-}
-
 :root {
     --ink: #f7f7f2;
     --ink-dark: #101010;
@@ -21,8 +12,8 @@
     --line: rgba(16, 16, 16, 0.14);
     --line-dark: rgba(247, 247, 242, 0.18);
     --max: 1180px;
-    --font-heading: "Arlette", "Gotham Rounded", "Gotham", "Poppins", "Inter", "Helvetica Neue", Arial, sans-serif;
-    --font-body: "Gotham Rounded", "Gotham", "Poppins", "Inter", "Helvetica Neue", Arial, sans-serif;
+    --font-heading: "IBM Plex Sans", "Source Sans 3", "Inter", "Helvetica Neue", Arial, sans-serif;
+    --font-body: "Source Sans 3", "Inter", "Helvetica Neue", Arial, sans-serif;
 }
 
 html {
@@ -35,7 +26,7 @@ body {
     color: var(--ink-dark);
     cursor: default;
     font-family: var(--font-body);
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.55;
 }
 
@@ -86,20 +77,6 @@ a:hover {
         align-items: center;
     }
 
-    .nav-image {
-        align-items: center;
-        display: inline-flex;
-        height: 72px;
-        padding: 0 !important;
-    }
-
-    .nav-image img {
-        filter: grayscale(1) contrast(1.15);
-        height: 46px !important;
-        max-height: none;
-        object-fit: contain;
-    }
-
     .navbar-menu {
         background: transparent !important;
         box-shadow: none;
@@ -118,6 +95,12 @@ a:hover {
         letter-spacing: 0;
         padding: 0;
         text-transform: none;
+    }
+
+    .nav-brand-text {
+        color: #101010 !important;
+        font-size: 1.35rem;
+        font-weight: 600;
     }
 
     .navbar-item:hover,
@@ -141,45 +124,61 @@ a:hover {
     }
 }
 
+body.home-page #navbar:not(.is-scrolled) {
+    background: linear-gradient(180deg, rgba(8, 8, 8, 0.58), rgba(8, 8, 8, 0.16) 72%, rgba(8, 8, 8, 0)) !important;
+    border-bottom: 1px solid rgba(247, 247, 242, 0.12);
+
+    .navbar-item {
+        color: rgba(247, 247, 242, 0.72) !important;
+    }
+
+    .navbar-item:hover,
+    .navbar-item:focus,
+    .navbar-item.is-active,
+    .navbar-item-highlight,
+    .navbar-item-product {
+        color: #ffffff !important;
+    }
+
+    .navbar-item-highlight,
+    .navbar-item-product {
+        border-color: rgba(247, 247, 242, 0.28);
+    }
+
+    .navbar-burger {
+        color: #ffffff;
+    }
+}
+
 .site-shell {
     background: var(--paper);
 }
 
 #hero {
-    background: var(--paper);
-    padding: calc(72px + 2rem) 2rem 2rem;
+    background-image:
+        linear-gradient(90deg, rgba(0, 0, 0, 0.36), rgba(0, 0, 0, 0.88) 70%),
+        linear-gradient(180deg, rgba(0, 0, 0, 0.04), rgba(20, 20, 20, 0.82) 74%, var(--paper-warm) 100%),
+        url("../images/backdrop.jpg");
+    background-position: center;
+    background-size: cover;
+    color: var(--ink);
+    min-height: 100vh;
+    padding: 0;
+    position: relative;
 
     .hero-frame {
-        background-image:
-            linear-gradient(90deg, rgba(0, 0, 0, 0.36), rgba(0, 0, 0, 0.9) 68%),
-            linear-gradient(180deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.42)),
-            url("../images/backdrop.jpg");
-        background-position: center;
-        background-size: cover;
-        border: 10px solid #050505;
-        border-radius: 10px;
-        box-shadow: 0 28px 60px rgba(16, 16, 16, 0.22);
-        color: var(--ink);
-        min-height: calc(100vh - 72px - 4rem);
-        overflow: hidden;
-        position: relative;
+        min-height: 100vh;
     }
 
     .hero-frame::before {
-        background: rgba(255, 255, 255, 0.12);
-        content: "";
-        height: 1px;
-        left: 6%;
-        position: absolute;
-        right: 6%;
-        top: 76px;
+        content: none;
     }
 
     .hero-body {
         align-items: flex-end;
         display: flex;
-        min-height: calc(100vh - 72px - 4rem);
-        padding: clamp(7rem, 12vw, 12rem) clamp(1.5rem, 6vw, 4.5rem) clamp(2.5rem, 7vw, 5rem);
+        min-height: 100vh;
+        padding: clamp(9rem, 15vw, 14rem) clamp(1.5rem, 6vw, 4.5rem) clamp(6.5rem, 11vw, 9.5rem);
     }
 
     .hero-content {
@@ -198,8 +197,8 @@ a:hover {
         color: var(--ink) !important;
         font-family: var(--font-heading);
         font-size: clamp(4rem, 9vw, 7.4rem);
-        font-weight: 300;
-        letter-spacing: -0.035em;
+        font-weight: 700;
+        letter-spacing: 0;
         line-height: 0.98;
         margin: 0 0 1.35rem !important;
         max-width: 11ch;
@@ -230,6 +229,7 @@ a:hover {
         font-weight: 400;
         min-height: 48px;
         padding: 0.78rem 1.05rem !important;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
     }
 
     .hero-button-primary {
@@ -238,10 +238,24 @@ a:hover {
         color: #101010;
     }
 
+    .hero-button-primary:hover,
+    .hero-button-primary:focus {
+        box-shadow: 0 0 22px rgba(247, 247, 242, 0.62);
+        color: #101010;
+    }
+
     .hero-button-secondary {
         background: transparent;
         border: 1px solid var(--line-dark);
         color: var(--ink);
+    }
+
+    .hero-button-secondary:hover,
+    .hero-button-secondary:focus {
+        border-color: #ffffff;
+        border-width: 2px;
+        box-shadow: none;
+        color: #ffffff;
     }
 }
 
@@ -258,7 +272,7 @@ a:hover {
 .section-eyebrow,
 .qomposer-eyebrow {
     color: #101010;
-    font-size: 0.82rem;
+    font-size: 1rem;
     font-weight: 600;
     letter-spacing: 0.02em;
     margin-bottom: 1rem;
@@ -269,8 +283,8 @@ a:hover {
     color: #101010;
     font-family: var(--font-heading);
     font-size: clamp(2.3rem, 5.8vw, 5.35rem);
-    font-weight: 300;
-    letter-spacing: -0.045em;
+    font-weight: 700;
+    letter-spacing: 0;
     line-height: 0.98;
     margin: 0 0 1.2rem;
 }
@@ -287,7 +301,7 @@ a:hover {
 
 .section-kicker {
     color: #101010;
-    font-size: 0.88rem;
+    font-size: 1rem;
     font-weight: 600;
     letter-spacing: 0.02em;
     margin-bottom: 0.7rem;
@@ -298,8 +312,7 @@ a:hover {
     padding-top: 1.5rem;
 }
 
-#about,
-#careers {
+#about {
     background: var(--paper);
 }
 
@@ -307,6 +320,9 @@ a:hover {
 #contact {
     background: var(--paper-warm);
     border-bottom: 1px solid var(--line);
+}
+
+#contact {
     border-top: 1px solid var(--line);
 }
 
@@ -317,74 +333,32 @@ a:hover {
 #about {
     .about-layout {
         display: grid;
-        gap: clamp(2.5rem, 7vw, 7rem);
-        grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+        gap: clamp(2rem, 5vw, 4rem);
     }
 
     .about-sections {
         display: grid;
-        gap: 2rem;
+        gap: 0;
     }
 
-    .vision-container {
+    .about-section {
         display: grid;
-        gap: 1rem;
-        margin-top: 1rem;
-    }
-
-    .vision-card {
-        border-top: 1px solid var(--line);
-        display: grid;
-        gap: 1rem;
-        grid-template-columns: 3rem minmax(0, 1fr);
-        padding-top: 1rem;
-    }
-
-    .vision-icon {
-        color: rgba(16, 16, 16, 0.46);
-        font-size: 0.9rem;
-        font-weight: 400;
-    }
-
-    .vision-text h3 {
-        color: #101010;
-        font-family: var(--font-heading);
-        font-size: 1.18rem;
-        font-weight: 400;
-        margin: 0 0 0.25rem;
-    }
-
-    .vision-text p {
-        color: var(--muted);
-        line-height: 1.62;
-        margin: 0;
-    }
-
-    .domain-list {
-        border-left: 1px solid var(--line);
-        display: grid;
-        gap: 1.25rem;
-        padding-left: clamp(1.5rem, 4vw, 3rem);
-    }
-
-    .domain-list span {
-        color: rgba(16, 16, 16, 0.42);
-        display: block;
-        font-size: 0.82rem;
-        margin-bottom: 0.2rem;
-    }
-
-    .domain-list p {
-        color: #101010;
-        font-size: clamp(1.6rem, 3vw, 2.45rem);
-        font-weight: 300;
-        letter-spacing: -0.035em;
-        line-height: 1.03;
-        margin: 0;
+        gap: clamp(1rem, 3vw, 2rem);
+        grid-template-columns: minmax(10rem, 0.35fr) minmax(0, 1fr);
+        padding-bottom: 1.5rem;
     }
 }
 
 #qomposer {
+    border-top: 0;
+    margin-top: -1px;
+    position: relative;
+    z-index: 1;
+
+    &::before {
+        content: none;
+    }
+
     .qomposer-layout {
         display: grid;
         gap: clamp(2.5rem, 7vw, 7rem);
@@ -395,8 +369,8 @@ a:hover {
         color: #101010;
         font-family: var(--font-heading);
         font-size: clamp(1.25rem, 2vw, 1.7rem);
-        font-weight: 300;
-        letter-spacing: -0.02em;
+        font-weight: 700;
+        letter-spacing: 0;
         line-height: 1.25;
         margin-bottom: 1rem;
     }
@@ -419,11 +393,6 @@ a:hover {
         padding: 0.7rem 1rem;
     }
 
-    .qomposer-proof {
-        color: var(--muted);
-        font-size: 0.95rem;
-    }
-
     .qomposer-notes {
         border-left: 1px solid var(--line);
         display: grid;
@@ -435,7 +404,7 @@ a:hover {
         color: #101010;
         font-size: clamp(1.3rem, 2.6vw, 2.2rem);
         font-weight: 300;
-        letter-spacing: -0.035em;
+        letter-spacing: 0;
         line-height: 1.08;
         margin: 0;
     }
@@ -445,6 +414,27 @@ a:hover {
         display: block;
         font-size: 0.85rem;
         margin-bottom: 0.35rem;
+    }
+
+    .qomposer-backends {
+        color: #101010;
+        display: grid;
+        font-size: clamp(1.25rem, 2.3vw, 2rem);
+        font-weight: 300;
+        gap: 0.45rem;
+        letter-spacing: 0;
+        line-height: 1.12;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .qomposer-mvp-note {
+        color: var(--muted);
+        font-size: 0.98rem;
+        line-height: 1.55;
+        margin-top: 2.35rem;
+        margin-bottom: 2rem!important;
     }
 }
 
@@ -489,22 +479,14 @@ a:hover {
         color: #101010;
         font-family: var(--font-heading);
         font-size: clamp(1.45rem, 2.8vw, 2.2rem);
-        font-weight: 300;
-        letter-spacing: -0.035em;
+        font-weight: 700;
+        letter-spacing: 0;
         line-height: 1.08;
         margin: 0 0 0.8rem;
     }
 
     .content {
         max-width: 42rem;
-    }
-}
-
-#careers {
-    border-bottom: 1px solid var(--line);
-
-    .careers-panel {
-        max-width: 880px;
     }
 }
 
@@ -523,18 +505,13 @@ a:hover {
         border-bottom: 1px solid var(--line);
         display: grid;
         gap: 1rem;
-        grid-template-columns: 3rem minmax(0, 1fr);
+        grid-template-columns: minmax(0, 1fr);
         padding: 1.35rem 0;
     }
 
     .contact-card + .contact-card {
         border-left: 1px solid var(--line);
         padding-left: 1.35rem;
-    }
-
-    .contact-icon {
-        color: rgba(16, 16, 16, 0.46);
-        font-size: 0.9rem;
     }
 
     .contact-text {
@@ -550,6 +527,14 @@ a:hover {
 
     .contact-text a {
         border-bottom: 1px solid rgba(16, 16, 16, 0.25);
+    }
+
+    .contact-text a:has(img) {
+        align-items: center;
+        border-bottom: 0;
+        display: inline-flex;
+        margin-right: 0.65rem;
+        margin-top: 0.2rem;
     }
 
     .contact-text img {
@@ -666,6 +651,266 @@ a:hover {
     line-height: 1.7;
 }
 
+.gsoc-page {
+    background:
+        linear-gradient(90deg, rgba(16, 16, 16, 0.025) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(16, 16, 16, 0.018) 1px, transparent 1px),
+        var(--paper-warm);
+    background-size: 34px 34px, 100% 18px, auto;
+    color: #101010;
+    overflow-x: hidden;
+}
+
+.gsoc-shell {
+    padding: 8.5rem 1.5rem 5rem;
+}
+
+.gsoc-shell .container,
+.gsoc-intro-copy,
+.gsoc-content,
+.gsoc-page .accordion-title,
+.gsoc-page .panel-inner {
+    min-width: 0;
+}
+
+.gsoc-shell .container {
+    width: 100%;
+}
+
+.gsoc-paper {
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.56), rgba(255, 255, 255, 0.24)),
+        var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    box-shadow: 0 24px 70px rgba(16, 16, 16, 0.07);
+}
+
+.gsoc-intro {
+    padding: 2rem;
+}
+
+.gsoc-intro-header {
+    align-items: center;
+    border-bottom: 1px solid var(--line);
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: 8.75rem minmax(0, 1fr);
+    margin-bottom: 1.7rem;
+    padding-bottom: 1.7rem;
+}
+
+.gsoc-mark {
+    align-items: center;
+    aspect-ratio: 1;
+    background: rgba(255, 255, 255, 0.46);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.gsoc-page .intro-image {
+    display: block;
+    height: auto;
+    max-width: 100%;
+}
+
+.gsoc-eyebrow {
+    color: var(--muted);
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0;
+    margin: 0 0 0.45rem;
+}
+
+.gsoc-page .title {
+    color: #101010;
+    font-family: var(--font-heading);
+    font-size: 3.6rem;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 1;
+    margin: 0 0 0.8rem;
+}
+
+.gsoc-subtitle {
+    color: rgba(16, 16, 16, 0.66);
+    font-size: 1.15rem;
+    line-height: 1.5;
+    margin: 0;
+    max-width: 48rem;
+}
+
+.gsoc-content {
+    color: rgba(16, 16, 16, 0.74);
+    font-size: 1rem;
+    line-height: 1.68;
+    margin: 0;
+    max-width: none;
+    overflow-wrap: anywhere;
+}
+
+.gsoc-content h2,
+.gsoc-content h3 {
+    color: #101010;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 1.18;
+}
+
+.gsoc-content h3 {
+    font-size: 1.45rem;
+    margin: 1.55rem 0 0.6rem;
+}
+
+.gsoc-content h3:first-child {
+    margin-top: 0;
+}
+
+.gsoc-content h2 {
+    border-top: 1px solid var(--line);
+    font-size: 1.85rem;
+    margin: 2rem 0 0;
+    padding-top: 1.35rem;
+}
+
+.gsoc-content p,
+.gsoc-content ul,
+.gsoc-content ol {
+    margin-bottom: 1rem;
+}
+
+.gsoc-content p:first-of-type {
+    color: #101010;
+    font-size: 1.1rem;
+    font-weight: 300;
+    line-height: 1.62;
+    padding-bottom: 0;
+}
+
+.gsoc-content a {
+    border-bottom: 1px solid rgba(16, 16, 16, 0.25);
+}
+
+.gsoc-projects {
+    margin-top: 1.25rem;
+}
+
+.gsoc-ideas-list {
+    display: grid;
+    gap: 1rem;
+}
+
+.gsoc-project-card {
+    background: rgba(244, 243, 238, 0.86);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    box-shadow: 0 16px 46px rgba(16, 16, 16, 0.045);
+    overflow: hidden;
+}
+
+.gsoc-page .accordion {
+    align-items: center;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    color: #101010;
+    display: grid;
+    font-family: var(--font-body);
+    gap: 0.25rem 1rem;
+    grid-template-columns: minmax(0, 1fr) auto;
+    margin: 0;
+    padding: 1.15rem 1.25rem;
+    transition: background 0.2s ease;
+}
+
+.gsoc-page .accordion:hover,
+.gsoc-page .accordion:focus-visible {
+    background: rgba(255, 255, 255, 0.38);
+}
+
+.gsoc-page .accordion:focus-visible {
+    outline: 2px solid #101010;
+    outline-offset: -2px;
+}
+
+.gsoc-page .accordion-kicker {
+    color: var(--muted);
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: 1.2;
+}
+
+.gsoc-page .accordion-title {
+    display: block;
+    font-size: 1.18rem;
+    font-weight: 500;
+    grid-column: 1;
+    line-height: 1.25;
+}
+
+.gsoc-page .accordion-icon {
+    align-items: center;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    color: rgba(16, 16, 16, 0.7);
+    display: flex;
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    height: 2.2rem;
+    justify-content: center;
+    width: 2.2rem;
+}
+
+.gsoc-page .accordion-icon i {
+    transition: transform 0.24s ease;
+}
+
+.gsoc-page .panel {
+    background: rgba(255, 255, 255, 0.3);
+    border: 0;
+    border-radius: 0;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0;
+    transition: max-height 0.3s ease;
+}
+
+.gsoc-page .panel-inner {
+    border-top: 1px solid var(--line);
+    color: rgba(16, 16, 16, 0.72);
+    line-height: 1.68;
+    padding: 1.25rem;
+}
+
+.gsoc-page .panel-inner p,
+.gsoc-page .panel-inner li {
+    color: rgba(16, 16, 16, 0.72);
+    line-height: 1.68;
+}
+
+.gsoc-page .panel-inner p {
+    margin: 0 0 1rem;
+}
+
+.gsoc-page .panel-inner ul {
+    margin: 0 0 1.15rem 1.2rem;
+}
+
+.gsoc-page .panel-inner strong {
+    color: #101010;
+    font-weight: 600;
+}
+
+.gsoc-page .panel-inner a {
+    border-bottom: 1px solid rgba(16, 16, 16, 0.25);
+}
+
 @media (max-width: 1024px) {
     #navbar {
         .container {
@@ -695,14 +940,24 @@ a:hover {
         }
     }
 
-    #about .about-layout,
+    body.home-page #navbar:not(.is-scrolled) {
+        .navbar-menu {
+            background: rgba(8, 8, 8, 0.8) !important;
+            border-top: 1px solid rgba(247, 247, 242, 0.14);
+        }
+
+        .navbar-item-highlight,
+        .navbar-item-product {
+            border: 0;
+        }
+    }
+
     #qomposer .qomposer-layout,
     #research .research-grid,
     #contact .contact-grid {
         grid-template-columns: 1fr;
     }
 
-    #about .domain-list,
     #qomposer .qomposer-notes {
         border-left: 0;
         border-top: 1px solid var(--line);
@@ -721,27 +976,24 @@ a:hover {
         border-left: 0;
         padding-left: 0;
     }
+
+    .gsoc-page .title {
+        font-size: 3rem;
+    }
 }
 
 @media (max-width: 768px) {
     #hero {
-        padding: calc(72px + 0.75rem) 0.75rem 0.75rem;
+        min-height: 100svh;
+        padding: 0;
 
         .hero-frame,
         .hero-body {
-            min-height: calc(100svh - 72px - 1.5rem);
-        }
-
-        .hero-frame {
-            border-width: 6px;
-        }
-
-        .hero-frame::before {
-            top: 64px;
+            min-height: 100svh;
         }
 
         .hero-body {
-            padding: 7rem 1.1rem 2.5rem;
+            padding: 8rem 1.1rem 5.5rem;
         }
 
         .title {
@@ -759,13 +1011,61 @@ a:hover {
         padding: 4rem 1rem;
     }
 
-    #about .vision-card,
     #research .research-card,
     #contact .contact-card {
         grid-template-columns: 1fr;
     }
 
+    #about .about-section {
+        grid-template-columns: 1fr;
+    }
+
     #footer .footer-inner {
         flex-direction: column;
+    }
+
+    .gsoc-shell {
+        padding: 6.5rem 1rem 3.5rem;
+    }
+
+    .gsoc-intro {
+        padding: 1.2rem;
+    }
+
+    .gsoc-intro-header {
+        align-items: start;
+        gap: 1rem;
+        grid-template-columns: 1fr;
+        margin-bottom: 1.25rem;
+        padding-bottom: 1.25rem;
+    }
+
+    .gsoc-mark {
+        padding: 0.7rem;
+        width: 5.75rem;
+    }
+
+    .gsoc-page .title {
+        font-size: 2.2rem;
+    }
+
+    .gsoc-subtitle {
+        font-size: 1rem;
+    }
+
+    .gsoc-content h3 {
+        font-size: 1.28rem;
+    }
+
+    .gsoc-page .accordion {
+        padding: 1rem;
+    }
+
+    .gsoc-page .accordion-title {
+        font-size: 1rem;
+    }
+
+    .gsoc-page .panel-inner {
+        padding: 1rem;
     }
 }

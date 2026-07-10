@@ -1,13 +1,11 @@
 <nav class="navbar is-white is-fixed-top has-text-black	" role="navigation" aria-label="main navigation" id="navbar">
     <div class="container">
 
-        <!-- logo or branding image on left side -->
+        <!-- logo or branding on left side -->
         <div class="navbar-brand">
-            <a class="nav-image m-0 p-0"
+            <a class="navbar-item nav-brand-text m-0 p-0"
                 href="{% if page.layout == 'default' %}{{ site.url }}{{ site.baseurl }}/#{% else %}{{ site.url }}{{ site.baseurl }}/{% endif %}">
-                <img class="m-0 p-0" src="{{ '/assets/images/logo-long.png' | relative_url }}" alt="Logo"
-                    style="height: 52px;">
-                <!-- <strong>{{ site.title }}</strong> -->
+                QANT Labs
             </a>
             <div class="navbar-burger" data-target="navbar-menu">
                 <span></span>
