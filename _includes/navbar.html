@@ -7,11 +7,11 @@
                 href="{% if page.layout == 'default' %}{{ site.url }}{{ site.baseurl }}/#{% else %}{{ site.url }}{{ site.baseurl }}/{% endif %}">
                 QANT Labs
             </a>
-            <div class="navbar-burger" data-target="navbar-menu">
+            <button class="navbar-burger" type="button" data-target="navbar-menu" aria-label="Open navigation menu" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </button>
         </div>
 
         <!-- children of navbar-menu must be navbar-start and/or navbar-end -->
@@ -39,23 +39,47 @@
 </nav>
 <!-- Bulma Navbar JS -->
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
+    function initNavbarMenu() {
         /* Get all "navbar-burger" elements */
         var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
         /* Check if there are any navbar burgers */
         if ($navbarBurgers.length > 0) {
             /* Add a click event on each of them */
             $navbarBurgers.forEach(function ($el) {
+                var target = $el.dataset.target;
+                var $target = document.getElementById(target);
+
+                function setMenuOpen(isOpen) {
+                    if (!$target) return;
+                    $el.classList.toggle('is-active', isOpen);
+                    $target.classList.toggle('is-active', isOpen);
+                    $el.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                    $el.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+                    document.body.classList.toggle('has-mobile-menu-open', isOpen);
+                }
+
                 $el.addEventListener('click', function () {
                     /* Get the target from the "data-target" attribute */
-                    var target = $el.dataset.target;
-                    var $target = document.getElementById(target);
+                    if (!$target) return;
                     /* Toggle the class on both the "navbar-burger" and the "navbar-menu" */
-                    $el.classList.toggle('is-active');
-                    $target.classList.toggle('is-active');
+                    var isOpen = !$target.classList.contains('is-active');
+                    setMenuOpen(isOpen);
                 });
+
+                if ($target) {
+                    Array.prototype.forEach.call($target.querySelectorAll('.navbar-item'), function ($link) {
+                        $link.addEventListener('click', function () {
+                            setMenuOpen(false);
+                        });
+                    });
+                }
             });
         }
+    }
 
-});
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initNavbarMenu);
+    } else {
+        initNavbarMenu();
+    }
 </script>
