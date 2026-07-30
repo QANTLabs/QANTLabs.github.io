@@ -209,6 +209,12 @@ body.home-page #navbar:not(.is-scrolled) {
         display: inline;
     }
 
+    .title .title-outline {
+        color: transparent;
+        -webkit-text-stroke: 3px var(--ink);
+        text-stroke: 3px var(--ink);
+    }
+
     .hero-description {
         max-width: 620px;
         padding: 0;
