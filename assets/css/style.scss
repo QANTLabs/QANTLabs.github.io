@@ -341,6 +341,11 @@ body.home-page #navbar:not(.is-scrolled) {
     background: var(--paper);
 }
 
+#products {
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+}
+
 #about {
     .about-layout {
         display: grid;
@@ -494,6 +499,126 @@ body.home-page #navbar:not(.is-scrolled) {
     }
 }
 
+#products {
+    .section-heading {
+        margin-bottom: 0;
+    }
+
+    .section-copy {
+        margin-top: 1.4rem;
+    }
+
+    /* Three columns divided by the same hairlines the research and contact
+       grids use, so the products read as another part of the same document
+       rather than as a card deck bolted on. */
+    .product-grid {
+        border-top: 1px solid var(--line);
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        margin-top: 3rem;
+    }
+
+    .product-card {
+        border-bottom: 1px solid var(--line);
+        display: flex;
+        flex-direction: column;
+        gap: 0.9rem;
+        padding: clamp(1.35rem, 3vw, 2.2rem) 0;
+    }
+
+    .product-card + .product-card {
+        border-left: 1px solid var(--line);
+        padding-left: clamp(1.35rem, 3vw, 2.2rem);
+    }
+
+    .product-card:not(:last-child) {
+        padding-right: clamp(1.35rem, 3vw, 2.2rem);
+    }
+
+    .product-name {
+        color: #101010;
+        font-family: var(--font-heading);
+        font-size: clamp(1.45rem, 2.8vw, 2.2rem);
+        font-weight: 700;
+        letter-spacing: 0;
+        line-height: 1.08;
+        margin: 0;
+    }
+
+    .product-tagline {
+        color: #101010;
+        font-family: var(--font-heading);
+        font-size: 1.02rem;
+        font-weight: 600;
+        line-height: 1.35;
+        margin: 0;
+    }
+
+    .product-copy {
+        margin: 0;
+    }
+
+    .product-points {
+        border-top: 1px solid var(--line);
+        list-style: none;
+        margin: 0.35rem 0 0;
+        padding: 0.9rem 0 0;
+    }
+
+    .product-points li {
+        color: var(--muted);
+        font-size: 0.92rem;
+        line-height: 1.5;
+        padding: 0.2rem 0 0.2rem 1.45rem;
+        position: relative;
+    }
+
+    .product-points li::before {
+        color: rgba(16, 16, 16, 0.35);
+        content: "—";
+        left: 0;
+        position: absolute;
+    }
+
+    .product-actions {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-top: auto;
+        padding-top: 1.4rem;
+    }
+
+    .product-button {
+        align-items: center;
+        border: 1px solid #101010;
+        border-radius: 7px;
+        color: #101010;
+        display: inline-flex;
+        font-size: 0.95rem;
+        min-height: 44px;
+        padding: 0.6rem 0.95rem;
+        transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .product-button:hover,
+    .product-button:focus {
+        background: #101010;
+        color: var(--ink);
+    }
+
+    .product-link {
+        border-bottom: 1px solid rgba(16, 16, 16, 0.25);
+        color: var(--muted);
+        font-size: 0.92rem;
+    }
+
+    .product-link:hover,
+    .product-link:focus {
+        color: #101010;
+    }
+}
+
 #contact {
     .section-heading {
         margin-bottom: 3rem;
@@ -571,6 +696,36 @@ body.home-page #navbar:not(.is-scrolled) {
         color: rgba(247, 247, 242, 0.66);
         margin: 0;
         max-width: 620px;
+    }
+
+    .footer-products {
+        min-width: 9rem;
+    }
+
+    .footer-products-title {
+        color: rgba(247, 247, 242, 0.48);
+        font-size: 0.82rem;
+        margin-bottom: 0.55rem;
+    }
+
+    .footer-products ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .footer-products li + li {
+        margin-top: 0.3rem;
+    }
+
+    .footer-products a {
+        color: rgba(247, 247, 242, 0.78);
+        font-size: 0.95rem;
+    }
+
+    .footer-products a:hover,
+    .footer-products a:focus {
+        color: var(--ink);
     }
 
     .footer-top {
@@ -1038,8 +1193,18 @@ body.home-page #navbar:not(.is-scrolled) {
 
     #qomposer .qomposer-layout,
     #research .research-grid,
+    #products .product-grid,
     #contact .contact-grid {
         grid-template-columns: 1fr;
+    }
+
+    #products .product-card + .product-card {
+        border-left: 0;
+        padding-left: 0;
+    }
+
+    #products .product-card:not(:last-child) {
+        padding-right: 0;
     }
 
     #qomposer .qomposer-notes {

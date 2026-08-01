@@ -27,7 +27,10 @@
                 <a class="navbar-item" data-section-target="research" href="{{site.url}}{{site.baseurl}}/#research">RESEARCH</a>
                 <!-- <a class="navbar-item" href="{{site.url}}{{site.baseurl}}/#pubAndNews">PUBLICATIONS</a> -->
                 <a class="navbar-item" data-section-target="contact" href="{{site.url}}{{site.baseurl}}/#contact">CONTACT</a>
-                <a class="navbar-item navbar-item-product" href="{{site.url}}{{site.baseurl}}/Qomposer">QOMPOSER</a>
+                <!-- One entry for all three products rather than one per product:
+                     the bar is already full, and the section it lands on links
+                     each of them out. -->
+                <a class="navbar-item navbar-item-product" data-section-target="products" href="{{site.url}}{{site.baseurl}}/#products">PRODUCTS</a>
                 <a class="navbar-item {% if page.url contains '/gsoc' %}is-active{% endif %} navbar-item-highlight" href="{{site.url}}{{site.baseurl}}/gsoc">GSoC 2026</a>
                 <!-- <a class="navbar-item {% if page.layout == 'blog' %}is-active{% endif %}"
                     href="{{site.url}}{{site.baseurl}}/blog">BLOG</a> -->

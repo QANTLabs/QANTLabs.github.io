@@ -1,0 +1,38 @@
+<section class="hero site-section site-section-light" id="products">
+    <div class="hero-body">
+        <div class="container">
+            <div class="section-heading">
+                <p class="section-eyebrow">Products</p>
+                <h1 class="section-title">Three ways into quantum computing.</h1>
+                <p class="section-copy">
+                    Each one is a working concept MVP you can open in a browser right now. They share a spine -
+                    vendor-neutral, honest about what is simulated and what is hardware - and differ in who they are
+                    for: the researcher, the newcomer, and the team that needs somewhere to run.
+                </p>
+            </div>
+
+            <div class="product-grid">
+                {% for product in site.data.products %}
+                <article class="product-card">
+                    <p class="product-name">{{ product.name }}</p>
+                    <p class="product-tagline">{{ product.tagline }}</p>
+                    <div class="content product-copy">{{ product.blurb }}</div>
+                    <ul class="product-points">
+                        {% for point in product.points %}
+                        <li>{{ point }}</li>
+                        {% endfor %}
+                    </ul>
+                    <div class="product-actions">
+                        <a class="product-button" href="{{ product.url }}" target="_blank" rel="noopener">
+                            Open {{ product.name }}
+                        </a>
+                        {% if product.prototype_url %}
+                        <a class="product-link" href="{{ product.prototype_url | relative_url }}">Prototype page</a>
+                        {% endif %}
+                    </div>
+                </article>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>

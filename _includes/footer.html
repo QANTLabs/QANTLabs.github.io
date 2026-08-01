@@ -4,6 +4,14 @@
             <p class="footer-brand">QANT Labs</p>
             <p class="footer-copy">Quantum science, AI, cybersecurity, and privacy research for practical secure systems.</p>
         </div>
+        <div class="footer-products">
+            <p class="footer-products-title">Products</p>
+            <ul>
+                {% for product in site.data.products %}
+                <li><a href="{{ product.url }}" target="_blank" rel="noopener">{{ product.name }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
         <a class="footer-top" onclick="window.scroll(0,0)">Back to top</a>
     </div>
     <div id="credits">

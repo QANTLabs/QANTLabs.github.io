@@ -1,0 +1,47 @@
+# The three QANT Labs products, rendered by _includes/products.html.
+#
+# `url` is the live app on its own subdomain (the full build, with a real
+# backend). `prototype_url` is the static in-browser build published on this
+# site, kept because it needs no server and survives the demo droplet being
+# down. Order here is the order on the page.
+
+- name: Qomposer
+  tagline: Verified, hardware-neutral quantum-circuit copilot.
+  blurb: >
+    Retrieves peer-reviewed circuit patterns, adapts them to your research goal,
+    and validates the result across quantum backends - so you go from a circuit
+    sketch to a reproducible, hardware-neutral output without betting on one
+    vendor's stack.
+  points:
+    - For researchers building circuits
+    - Six backends, one specification
+    - Statevector physics computed in-browser
+  url: https://qomposer.qantlabs.com.au/
+  prototype_url: /Qomposer
+
+- name: Qoach
+  tagline: Learn what a quantum computer can actually do.
+  blurb: >
+    Eleven things you might want a computer to figure out, from sorting shapes
+    to finding a molecule's energy. Pick one, make some data, turn a few dials,
+    and watch a real quantum simulation learn from it - no code, nothing to
+    install, and no account needed to start.
+  points:
+    - For newcomers and educators
+    - Eleven challenges, real algorithms underneath
+    - Simulated with PennyLane, explained in plain English
+  url: https://qoach.qantlabs.com.au/
+  prototype_url: /Qoach
+
+- name: QHUB
+  tagline: Quantum notebooks in the cloud, with the meter in view.
+  blurb: >
+    A hosted notebook bound to the device it runs on, so the code, the job and
+    the cost stay in one place. Start from a template, run it on a simulator
+    today, and keep an audited history of every job you submit.
+  points:
+    - For teams that need somewhere to run
+    - Templates, jobs and a device catalogue
+    - Credits quoted before the run, not after
+  url: https://qhub.qantlabs.com.au/
+  prototype_url: /QHUB
