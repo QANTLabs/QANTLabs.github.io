@@ -575,16 +575,6 @@ body.home-page #navbar:not(.is-scrolled) {
         color: var(--ink);
     }
 
-    .product-link {
-        border-bottom: 1px solid rgba(16, 16, 16, 0.25);
-        color: var(--muted);
-        font-size: 0.92rem;
-    }
-
-    .product-link:hover,
-    .product-link:focus {
-        color: #101010;
-    }
 }
 
 #contact {

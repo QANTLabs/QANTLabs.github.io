@@ -6,10 +6,9 @@
 # fields are what the page uses to say so out loud, so reordering this file
 # reorders the pitch - keep `step` in sync if you do.
 #
-# `url` is the live app on its own subdomain (the full build, with a real
-# backend). `prototype_url` is the static in-browser build published on this
-# site, kept because it needs no server and survives the demo droplet being
-# down.
+# `url` is the live app on its own subdomain. There is no second link any more:
+# the static in-browser builds this site used to publish at /Qomposer, /Qoach
+# and /QHUB are gone, so the subdomain is the only place a product exists.
 
 - name: Qoach
   step: "01"
@@ -26,7 +25,6 @@
     - Eleven challenges, a real algorithm named on each one
     - Simulated with PennyLane and explained as it goes
   url: https://qoach.qantlabs.com.au/
-  prototype_url: /Qoach
 
 - name: Qomposer
   step: "02"
@@ -50,7 +48,6 @@
     - IQM Garnet
     - Pawsey · Quantum Brilliance
   url: https://qomposer.qantlabs.com.au/
-  prototype_url: /Qomposer
 
 - name: QHUB
   step: "03"
@@ -66,4 +63,3 @@
     - Templates, job history and a device catalogue
     - Credits quoted before the run, not after
   url: https://qhub.qantlabs.com.au/
-  prototype_url: /QHUB

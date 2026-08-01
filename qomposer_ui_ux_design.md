@@ -159,7 +159,7 @@ The page uses **geometric shapes** to represent backends:
   - hardware‑agnosticism  
 
 ### **7.2 Section Titles**
-Examples from the page (Ref:   [qantlabs.com.au](https://qantlabs.com.au/Qomposer)):
+Examples from the page (Ref:   [qomposer.qantlabs.com.au](https://qomposer.qantlabs.com.au/)):
 - *Grounded*  
 - *Verified*  
 - *Neutral*  

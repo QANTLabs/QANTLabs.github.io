@@ -38,9 +38,6 @@
                         <a class="product-button" href="{{ product.url }}" target="_blank" rel="noopener">
                             Open {{ product.name }}
                         </a>
-                        {% if product.prototype_url %}
-                        <a class="product-link" href="{{ product.prototype_url | relative_url }}">Prototype page</a>
-                        {% endif %}
                     </div>
                 </li>
                 {% endfor %}
