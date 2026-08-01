@@ -270,8 +270,7 @@ body.home-page #navbar:not(.is-scrolled) {
     }
 }
 
-.site-section .hero-body,
-.qomposer-showcase {
+.site-section .hero-body {
     padding: clamp(4.5rem, 8vw, 7.5rem) 1.5rem;
 }
 
@@ -280,8 +279,7 @@ body.home-page #navbar:not(.is-scrolled) {
     max-width: 780px;
 }
 
-.section-eyebrow,
-.qomposer-eyebrow {
+.section-eyebrow {
     color: #101010;
     font-size: 1rem;
     font-weight: 600;
@@ -289,8 +287,7 @@ body.home-page #navbar:not(.is-scrolled) {
     margin-bottom: 1rem;
 }
 
-.section-title,
-.qomposer-title {
+.section-title {
     color: #101010;
     font-family: var(--font-heading);
     font-size: clamp(2.3rem, 5.8vw, 5.35rem);
@@ -301,7 +298,6 @@ body.home-page #navbar:not(.is-scrolled) {
 }
 
 .section-copy,
-.qomposer-copy,
 .content,
 .contact-text,
 .footer-copy {
@@ -327,7 +323,7 @@ body.home-page #navbar:not(.is-scrolled) {
     background: var(--paper);
 }
 
-#qomposer,
+#products,
 #contact {
     background: var(--paper-warm);
     border-bottom: 1px solid var(--line);
@@ -339,11 +335,6 @@ body.home-page #navbar:not(.is-scrolled) {
 
 #research {
     background: var(--paper);
-}
-
-#products {
-    background: var(--paper);
-    border-bottom: 1px solid var(--line);
 }
 
 #about {
@@ -365,94 +356,6 @@ body.home-page #navbar:not(.is-scrolled) {
     }
 }
 
-#qomposer {
-    border-top: 0;
-    margin-top: -1px;
-    position: relative;
-    z-index: 1;
-
-    &::before {
-        content: none;
-    }
-
-    .qomposer-layout {
-        display: grid;
-        gap: clamp(2.5rem, 7vw, 7rem);
-        grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-    }
-
-    .qomposer-subtitle {
-        color: #101010;
-        font-family: var(--font-heading);
-        font-size: clamp(1.25rem, 2vw, 1.7rem);
-        font-weight: 700;
-        letter-spacing: 0;
-        line-height: 1.25;
-        margin-bottom: 1rem;
-    }
-
-    .qomposer-actions {
-        align-items: center;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
-        margin-top: 1.8rem;
-    }
-
-    .qomposer-button {
-        border: 1px solid #101010;
-        border-radius: 7px;
-        color: #101010;
-        display: inline-flex;
-        font-size: 0.98rem;
-        min-height: 46px;
-        padding: 0.7rem 1rem;
-    }
-
-    .qomposer-notes {
-        border-left: 1px solid var(--line);
-        display: grid;
-        gap: 1.35rem;
-        padding-left: clamp(1.5rem, 4vw, 3rem);
-    }
-
-    .qomposer-notes p {
-        color: #101010;
-        font-size: clamp(1.3rem, 2.6vw, 2.2rem);
-        font-weight: 300;
-        letter-spacing: 0;
-        line-height: 1.08;
-        margin: 0;
-    }
-
-    .qomposer-notes span {
-        color: rgba(16, 16, 16, 0.48);
-        display: block;
-        font-size: 0.85rem;
-        margin-bottom: 0.35rem;
-    }
-
-    .qomposer-backends {
-        color: #101010;
-        display: grid;
-        font-size: clamp(1.25rem, 2.3vw, 2rem);
-        font-weight: 300;
-        gap: 0.45rem;
-        letter-spacing: 0;
-        line-height: 1.12;
-        list-style: none;
-        margin: 0;
-        padding: 0;
-    }
-
-    .qomposer-mvp-note {
-        color: var(--muted);
-        font-size: 0.98rem;
-        line-height: 1.55;
-        margin-top: 2.35rem;
-        margin-bottom: 2rem!important;
-    }
-}
 
 #research {
     .research-grid {
@@ -500,6 +403,18 @@ body.home-page #navbar:not(.is-scrolled) {
 }
 
 #products {
+    /* Sits directly under the hero, whose bottom gradient resolves to
+       --paper-warm. The negative margin closes the hairline the two would
+       otherwise show between them. */
+    border-top: 0;
+    margin-top: -1px;
+    position: relative;
+    z-index: 1;
+
+    &::before {
+        content: none;
+    }
+
     .section-heading {
         margin-bottom: 0;
     }
@@ -510,12 +425,16 @@ body.home-page #navbar:not(.is-scrolled) {
 
     /* Three columns divided by the same hairlines the research and contact
        grids use, so the products read as another part of the same document
-       rather than as a card deck bolted on. */
+       rather than as a card deck bolted on. Numbered, because the order is the
+       argument: they run from "never touched this" to "give me a kernel". */
     .product-grid {
         border-top: 1px solid var(--line);
+        counter-reset: product;
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
-        margin-top: 3rem;
+        list-style: none;
+        margin: 3rem 0 0;
+        padding: 0;
     }
 
     .product-card {
@@ -524,6 +443,55 @@ body.home-page #navbar:not(.is-scrolled) {
         flex-direction: column;
         gap: 0.9rem;
         padding: clamp(1.35rem, 3vw, 2.2rem) 0;
+    }
+
+    /* The rung: a step number and what it assumes you already know. */
+    .product-step {
+        align-items: baseline;
+        color: var(--muted);
+        display: flex;
+        gap: 0.65rem;
+    }
+
+    .product-step-num {
+        color: rgba(16, 16, 16, 0.32);
+        font-family: var(--font-heading);
+        font-size: 0.95rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+    }
+
+    .product-step-level {
+        color: #101010;
+        font-size: 0.9rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+    }
+
+    .product-audience {
+        color: var(--muted);
+        font-size: 0.95rem;
+        margin: -0.35rem 0 0;
+    }
+
+    .product-backends {
+        border-top: 1px solid var(--line);
+        padding-top: 0.9rem;
+    }
+
+    .product-backends span {
+        color: rgba(16, 16, 16, 0.48);
+        display: block;
+        font-size: 0.8rem;
+        margin-bottom: 0.3rem;
+    }
+
+    .product-backends p {
+        color: var(--muted);
+        font-size: 0.9rem;
+        line-height: 1.5;
+        margin: 0;
     }
 
     .product-card + .product-card {
@@ -1191,7 +1159,6 @@ body.home-page #navbar:not(.is-scrolled) {
         }
     }
 
-    #qomposer .qomposer-layout,
     #research .research-grid,
     #products .product-grid,
     #contact .contact-grid {
@@ -1205,13 +1172,6 @@ body.home-page #navbar:not(.is-scrolled) {
 
     #products .product-card:not(:last-child) {
         padding-right: 0;
-    }
-
-    #qomposer .qomposer-notes {
-        border-left: 0;
-        border-top: 1px solid var(--line);
-        padding-left: 0;
-        padding-top: 1.75rem;
     }
 
     #research .research-card:nth-child(odd),
@@ -1274,8 +1234,7 @@ body.home-page #navbar:not(.is-scrolled) {
         }
     }
 
-    .site-section .hero-body,
-    .qomposer-showcase {
+    .site-section .hero-body {
         padding: 4rem 1rem;
     }
 

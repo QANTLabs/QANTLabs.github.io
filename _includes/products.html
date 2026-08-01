@@ -3,18 +3,24 @@
         <div class="container">
             <div class="section-heading">
                 <p class="section-eyebrow">Products</p>
-                <h1 class="section-title">Three ways into quantum computing.</h1>
+                <h1 class="section-title">Three products, from curious to expert.</h1>
                 <p class="section-copy">
-                    Each one is a working concept MVP you can open in a browser right now. They share a spine -
-                    vendor-neutral, honest about what is simulated and what is hardware - and differ in who they are
-                    for: the researcher, the newcomer, and the team that needs somewhere to run.
+                    They share a spine - vendor-neutral, honest about what is simulated and what is hardware - and
+                    differ in how much you already know. The first needs nothing but curiosity. The last hands you a
+                    kernel and gets out of the way. Each one is a working concept MVP you can open in a browser right
+                    now.
                 </p>
             </div>
 
-            <div class="product-grid">
+            <ol class="product-grid">
                 {% for product in site.data.products %}
-                <article class="product-card">
+                <li class="product-card">
+                    <div class="product-step">
+                        <span class="product-step-num">{{ product.step }}</span>
+                        <span class="product-step-level">{{ product.level }}</span>
+                    </div>
                     <p class="product-name">{{ product.name }}</p>
+                    <p class="product-audience">{{ product.audience }}</p>
                     <p class="product-tagline">{{ product.tagline }}</p>
                     <div class="content product-copy">{{ product.blurb }}</div>
                     <ul class="product-points">
@@ -22,6 +28,12 @@
                         <li>{{ point }}</li>
                         {% endfor %}
                     </ul>
+                    {% if product.backends %}
+                    <div class="product-backends">
+                        <span>Backends supported</span>
+                        <p>{{ product.backends | join: " · " }}</p>
+                    </div>
+                    {% endif %}
                     <div class="product-actions">
                         <a class="product-button" href="{{ product.url }}" target="_blank" rel="noopener">
                             Open {{ product.name }}
@@ -30,9 +42,9 @@
                         <a class="product-link" href="{{ product.prototype_url | relative_url }}">Prototype page</a>
                         {% endif %}
                     </div>
-                </article>
+                </li>
                 {% endfor %}
-            </div>
+            </ol>
         </div>
     </div>
 </section>

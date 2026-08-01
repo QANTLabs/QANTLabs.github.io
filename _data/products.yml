@@ -1,11 +1,37 @@
 # The three QANT Labs products, rendered by _includes/products.html.
 #
+# Order is the ladder, not preference: Qoach for someone who has never touched
+# this, Qomposer for someone who knows what they want to build, QHUB for someone
+# who wants the runtime and will write their own code. The `step` and `level`
+# fields are what the page uses to say so out loud, so reordering this file
+# reorders the pitch - keep `step` in sync if you do.
+#
 # `url` is the live app on its own subdomain (the full build, with a real
 # backend). `prototype_url` is the static in-browser build published on this
 # site, kept because it needs no server and survives the demo droplet being
-# down. Order here is the order on the page.
+# down.
+
+- name: Qoach
+  step: "01"
+  level: Start here
+  audience: No experience needed
+  tagline: Find out what a quantum computer can actually do.
+  blurb: >
+    Eleven things you might want a computer to figure out, from sorting shapes
+    to finding a molecule's energy. Pick one, we make you the data, you turn a
+    few dials, and a real quantum simulation learns from it - in pictures, in
+    plain English, in about a minute.
+  points:
+    - No code, nothing to install, no account to start
+    - Eleven challenges, a real algorithm named on each one
+    - Simulated with PennyLane and explained as it goes
+  url: https://qoach.qantlabs.com.au/
+  prototype_url: /Qoach
 
 - name: Qomposer
+  step: "02"
+  level: Build with it
+  audience: You know what you want to build
   tagline: Verified, hardware-neutral quantum-circuit copilot.
   blurb: >
     Retrieves peer-reviewed circuit patterns, adapts them to your research goal,
@@ -13,35 +39,31 @@
     sketch to a reproducible, hardware-neutral output without betting on one
     vendor's stack.
   points:
-    - For researchers building circuits
-    - Six backends, one specification
+    - Grounded in published circuits, not generated from scratch
+    - One specification, checked across six backends
     - Statevector physics computed in-browser
+  backends:
+    - Qiskit Aer
+    - Braket SV1
+    - IBM Brisbane
+    - Quantinuum H2
+    - IQM Garnet
+    - Pawsey · Quantum Brilliance
   url: https://qomposer.qantlabs.com.au/
   prototype_url: /Qomposer
 
-- name: Qoach
-  tagline: Learn what a quantum computer can actually do.
-  blurb: >
-    Eleven things you might want a computer to figure out, from sorting shapes
-    to finding a molecule's energy. Pick one, make some data, turn a few dials,
-    and watch a real quantum simulation learn from it - no code, nothing to
-    install, and no account needed to start.
-  points:
-    - For newcomers and educators
-    - Eleven challenges, real algorithms underneath
-    - Simulated with PennyLane, explained in plain English
-  url: https://qoach.qantlabs.com.au/
-  prototype_url: /Qoach
-
 - name: QHUB
+  step: "03"
+  level: Go deeper
+  audience: You write the code
   tagline: Quantum notebooks in the cloud, with the meter in view.
   blurb: >
     A hosted notebook bound to the device it runs on, so the code, the job and
     the cost stay in one place. Start from a template, run it on a simulator
     today, and keep an audited history of every job you submit.
   points:
-    - For teams that need somewhere to run
-    - Templates, jobs and a device catalogue
+    - Your own Python against a real kernel
+    - Templates, job history and a device catalogue
     - Credits quoted before the run, not after
   url: https://qhub.qantlabs.com.au/
   prototype_url: /QHUB

@@ -71,10 +71,13 @@ Cards:
 - Hover lift is subtle and must not shift layout.
 - Research cards and contact cards use compact geometric/icon chips.
 
-Qomposer:
-- Keep the hardware-neutral circuit motif.
-- Place it in a glass panel that matches the site system.
-- Use teal and blue gate accents with readable labels.
+Products:
+- One section for all three, ordered as a ladder from "no experience needed" to
+  "you write the code". The order is the argument, so it is data-driven
+  (`_data/products.yml`) rather than hand-written per card.
+- Numbered rungs and a one-line audience statement carry the progression; the
+  cards themselves stay uniform so no product looks like the favourite.
+- Qomposer keeps the hardware-neutral backend list, as a line on its own card.
 
 GSoC:
 - Keep existing content and accordion behavior.
@@ -90,4 +93,4 @@ GSoC:
 
 ## Scope
 
-This design language covers the homepage, navbar, footer, blog/project/page layouts, GSoC layout styling, contact cards, research cards, Qomposer showcase, and reusable content cards. `qomposer_ui_ux_design.md` remains the product-specific design reference for Qomposer.
+This design language covers the homepage, navbar, footer, blog/project/page layouts, GSoC layout styling, contact cards, research cards, the products ladder, and reusable content cards. `qomposer_ui_ux_design.md` remains the product-specific design reference for Qomposer.
