@@ -297,6 +297,11 @@ body.home-page #navbar:not(.is-scrolled) {
     margin: 0 0 1.2rem;
 }
 
+.section-title span {
+    color: var(--muted);
+    display: block;
+}
+
 .section-copy,
 .content,
 .contact-text,
